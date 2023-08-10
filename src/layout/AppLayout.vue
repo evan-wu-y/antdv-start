@@ -19,7 +19,7 @@ const handleScroll = () => {
             <a-layout-header :style="{ padding: '0px', background: '#fff' }">
                 <AppHeader v-model:collapsed="collapsed" />
             </a-layout-header>
-            <a-layout-content style="position: relative; padding: 10px 0px 10px 10px;;">
+            <a-layout-content style="padding: 10px 0px 10px 10px;;">
                 <div ref="mainRef" class="main-content" @scroll="handleScroll">
                     <router-view #default="{ Component }">
                         <transition appear name="slide-fadein-right" mode="out-in">
@@ -44,14 +44,10 @@ const handleScroll = () => {
     height: 100vh;
 
     .main-content {
-        height: calc(100% - 20px);
-        width: calc(100% - 10px);
-        height: calc(100% - 20px);
+        height: calc(100%);
         overflow-y: auto;
         overflow-x: hidden;
-        position: absolute;
         background-color: #fff;
-        // margin: 10px 0px 10px 10px;
     }
 }
 

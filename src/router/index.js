@@ -60,7 +60,15 @@ const router = createRouter({
               }
             },
           ]
-        }
+        },
+        {
+          path: '/:pathMatch(.*)',
+          meta: {
+            hidden: true,
+            title: '找不到页面',
+          },
+          component: () => import('@/views/PageNotFound.vue'),
+        },
       ]
     },
   ]
