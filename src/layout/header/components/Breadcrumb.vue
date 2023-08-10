@@ -11,18 +11,21 @@ const route = useRoute()
                 <span>back</span>
             </a-breadcrumb-item>
         </a-breadcrumb> -->
-        <a-breadcrumb class="breadcrumb" separator=">">
-            <template v-for="(item, index) in route.matched" :key="item.path">
-                <a-breadcrumb-item v-if="item.name">
-                    <router-link v-if="item.name !== route.name" :to="{ path: item.path === '' ? '/' : item.path }">
-                        {{ item.meta.title.toUpperCase() }}
-                    </router-link>
-                    <span v-else>
-                        {{ item.meta.title.toUpperCase() }}
-                    </span>
-                </a-breadcrumb-item>
-            </template>
-        </a-breadcrumb>
+        <transition appear name="slide-fadein-right" mode="out-in">
+            <!-- transition component requires unique key -->
+            <a-breadcrumb class="breadcrumb" separator=">" :key="route.name">
+                <template v-for="(item, index) in route.matched" :key="item.path">
+                    <a-breadcrumb-item v-if="item.name">
+                        <router-link v-if="item.name !== route.name" :to="{ path: item.path === '' ? '/' : item.path }">
+                            {{ item.meta.title.toUpperCase() }}
+                        </router-link>
+                        <span v-else>
+                            {{ item.meta.title.toUpperCase() }}
+                        </span>
+                    </a-breadcrumb-item>
+                </template>
+            </a-breadcrumb>
+        </transition>
     </div>
 </template>
 
