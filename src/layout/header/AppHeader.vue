@@ -1,5 +1,6 @@
 <script setup>
-import Breadcrumb from './breadCrumb/Breadcrumb.vue';
+import Breadcrumb from './components/Breadcrumb.vue';
+import UserAvatar from './components/UserAvatar.vue';
 defineProps(['collapsed'])
 defineEmits(['update:collapsed'])
 </script>
@@ -11,7 +12,9 @@ defineEmits(['update:collapsed'])
             <menu-fold-outlined v-else class="trigger" @click="$emit('update:collapsed', !collapsed)" />
             <Breadcrumb />
         </div>
-        <div class="header-right">User</div>
+        <div class="header-right">
+            <UserAvatar />
+        </div>
     </div>
 </template>
 

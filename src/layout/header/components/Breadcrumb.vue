@@ -15,10 +15,10 @@ const route = useRoute()
             <template v-for="(item, index) in route.matched" :key="item.path">
                 <a-breadcrumb-item v-if="item.name">
                     <router-link v-if="item.name !== route.name" :to="{ path: item.path === '' ? '/' : item.path }">
-                        {{ item.meta.title }}
+                        {{ item.meta.title.toUpperCase() }}
                     </router-link>
                     <span v-else>
-                        {{ item.meta.title }}
+                        {{ item.meta.title.toUpperCase() }}
                     </span>
                 </a-breadcrumb-item>
             </template>
