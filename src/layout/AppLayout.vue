@@ -19,10 +19,10 @@ const handleScroll = () => {
             <a-layout-header :style="{ padding: '0px', background: '#fff' }">
                 <AppHeader v-model:collapsed="collapsed" />
             </a-layout-header>
-            <a-layout-content>
+            <a-layout-content style="position: relative; padding: 10px 0px 10px 10px;;">
                 <div ref="mainRef" class="main-content" @scroll="handleScroll">
-                    <router-view v-slot="{ Component }">
-                        <transition name="slide-fade" mode="out-in">
+                    <router-view #default="{ Component }">
+                        <transition appear name="slide-fadein-right" mode="out-in">
                             <component :is="Component" />
                         </transition>
                     </router-view>
@@ -45,28 +45,87 @@ const handleScroll = () => {
 
     .main-content {
         height: calc(100% - 20px);
-        overflow: auto;
+        width: calc(100% - 10px);
+        height: calc(100% - 20px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: absolute;
         background-color: #fff;
-        margin: 10px 0px 10px 10px;
+        // margin: 10px 0px 10px 10px;
     }
 }
 
-.slide-fade-enter-active {
-    transition: all 0.3s ease-out;
+// .slide-fade-enter-active {
+//     transition: all 0.3s ease-out;
+// }
+
+// .slide-fade-leave-active {
+//     transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+// }
+
+// .slide-fade-enter {
+//     opacity: 0;
+//     transform: translateX(-20px);
+// }
+
+// .slide-fade-leave-to {
+//     opacity: 0;
+//     transform: translateX(-20px);
+// }
+
+.slide-fadein-up-enter-active,
+.slide-fadein-up-leave-active {
+    transition: opacity 0.3s, transform 0.4s;
 }
 
-.slide-fade-leave-active {
-    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter {
+.slide-fadein-up-enter-from {
+    transform: translateY(20px);
     opacity: 0;
-    transform: translateX(-20px);
 }
 
-.slide-fade-leave-to {
+.slide-fadein-up-leave-to {
+    transform: translateY(-20px);
     opacity: 0;
+}
+
+.slide-fadein-right-enter-active,
+.slide-fadein-right-leave-active {
+    transition: opacity 0.3s, transform 0.4s, -webkit-transform 0.4s;
+}
+
+.slide-fadein-right-enter-from {
     transform: translateX(-20px);
+    opacity: 0;
+}
+
+.slide-fadein-right-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+}
+
+.zoom-fadein-enter-active,
+.zoom-fadein-leave-active {
+    transition: transform 0.3s, opacity 0.3s ease-in-out;
+}
+
+.zoom-fadein-enter-from {
+    transform: scale(0.99);
+    opacity: 0;
+}
+
+.zoom-fadein-leave-to {
+    transform: scale(1.01);
+    opacity: 0;
+}
+
+.fadein-enter-active,
+.fadein-leave-active {
+    transition: opacity 0.3s ease-in-out !important;
+}
+
+.fadein-enter-from,
+.fadein-leave-to {
+    opacity: 0 !important;
 }
 
 /* .site-layout .site-layout-background {
