@@ -25,6 +25,8 @@ defineEmits(['update:collapsed'])
 
     .header-left {
         display: flex;
+        align-items: center;
+        justify-content: center;
 
         .trigger {
             font-size: 18px;

@@ -59,6 +59,16 @@ const router = createRouter({
                 icon: 'HomeOutlined'
               }
             },
+            {
+              path: '/table',
+              name: 'Table',
+              component: () => import('@/views/TableView.vue'),
+              meta: {
+                title: 'Table',
+                hidden: false,
+                icon: 'HomeOutlined'
+              }
+            },
           ]
         },
         {

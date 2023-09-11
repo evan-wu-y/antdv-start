@@ -12,7 +12,7 @@ const handleScroll = () => {
 
 <template>
     <a-layout>
-        <a-layout-sider v-model:collapsed="collapsed" collapsible class="aside">
+        <a-layout-sider v-model:collapsed="collapsed" collapsible class="aside" breakpoint="lg">
             <AppAside />
         </a-layout-sider>
         <a-layout class="main-container">
@@ -47,7 +47,7 @@ const handleScroll = () => {
         height: calc(100%);
         overflow-y: auto;
         overflow-x: hidden;
-        background-color: #fff;
+        // background-color: #fff;
     }
 }
 
