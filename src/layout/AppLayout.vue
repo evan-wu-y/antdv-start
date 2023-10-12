@@ -30,7 +30,7 @@ const handleScroll = () => {
             </a-layout-content>
         </a-layout>
     </a-layout>
-    <a-back-top danger type="primary" :style="{ right: '50px', bottom: '50px' }" v-show="showBackTop"
+    <a-back-top type="primary" :style="{ right: '50px', bottom: '50px' }" v-show="showBackTop"
         @click="$refs.mainRef.scrollTop = 0" />
 </template>
 
